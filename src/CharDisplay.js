@@ -1,17 +1,21 @@
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
-function CharDisplay(props) {
-  const {name, height, mass, hair_color, eye_color, birth_year } = props
-  const dispatch = useDispatch()
+function CharDisplay() {
+  // const { name, height, mass, hair_color, eye_color, birth_year } = useSelector(state => state.starWars)
+
+  const starWars = useSelector(state => state.starWars)
+
+  if (starWars === null) {
+    return null
+  }
+
+  const { name, height, mass, hair_color, eye_color, birth_year } = starWars
 
   return (
     <div>
-      <div>
-        <button
-          onClick={() => {}}
-        >SAVE</button>
-        <h3>{name} </h3> 
-      </div>
+      <button>save</button>
+      <h3>{name} </h3> 
+
       <p>Height: {height}</p>
       <p>Mass: {mass}</p>
       <p>Hair: {hair_color}</p>

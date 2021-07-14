@@ -7,13 +7,14 @@ import rootReducer from './reducers'
 
 
 import Home from './Home'
-import StarWars from './StarWars'
+import StarWars2 from './StarWars2'
+
 
 function App() {
   return (
     <div className="App">
       <Home />
-      <StarWars />
+      <StarWars2 />
     </div>
   );
 }
