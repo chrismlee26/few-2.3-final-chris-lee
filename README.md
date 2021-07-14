@@ -14,10 +14,26 @@ Yarn Start
 
 ## Components (Currently TO DO:)
 
-[x] Home : Displays my name + class name
-[] StarWars : Takes a user input.
-[] Number between 1-16 & 18-83 to fetch and display a character from the SWAPI. Submit button to submit.
-[] Save Button with useState() saves the displayed character to a new list of characters
-[] async fetch to display homeworld data, using a URL returned in the initial SWAPI json data
-[] async fetch to display movie data, using a URL returned in the initial SWAPI json data
-[] CSS styles
+- [x] Home : Displays my name + class name
+- [x] StarWars : Takes a user input.
+- [] Number between 1-16 & 18-83 to fetch and display a character from the SWAPI. Submit button to submit.
+- [] Save Button with useState() saves the displayed character to a new list of characters
+- [] async fetch to display homeworld data, using a URL returned in the initial SWAPI json data
+- [] async fetch to display movie data, using a URL returned in the initial SWAPI json data
+- [] CSS styles
+
+## Challenges:
+
+1. [x] Create React App
+2. [x] Home Component
+3. [x] StarWars Component
+
+- [] Bonus : Validate Form
+
+4. [x] Person API Call
+5. [] Display Person API Data
+6. [] Save Button, saves displayed search to list
+7. [] Display Saved Char List
+8. [] Display Homeworld
+9. [] Add some CSS
+10. [] Display Film List
