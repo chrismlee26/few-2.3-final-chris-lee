@@ -1,13 +1,16 @@
-// import data from './StarWars'
+import { useDispatch } from 'react-redux'
 
 function CharDisplay(props) {
   const {name, height, mass, hair_color, eye_color, birth_year } = props
+  const dispatch = useDispatch()
 
   return (
     <div>
       <div>
+        <button
+          onClick={() => {}}
+        >SAVE</button>
         <h3>{name} </h3> 
-        <button>SAVE</button>
       </div>
       <p>Height: {height}</p>
       <p>Mass: {mass}</p>

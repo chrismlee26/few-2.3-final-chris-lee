@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import CharDisplay from './CharDisplay';
+import { useDispatch } from 'react-redux'
 
 
 function StarWars() {
   // Do we need a placeholder value?
   const [id, setId] = useState('');
+  const [charList, setCharList] = useState([])
   const [data, setData] = useState(null);
 
   // input validator
@@ -35,28 +37,35 @@ function StarWars() {
       eye_color,
       birth_year,
     })
-  } catch(error) {
-    console.log(error)
-  }
+    } catch(error) {
+      console.log(error)
+    } 
 }
-
 
   return (
     <div className="starWars">
-      <input
-        placeholder="Enter ## 1-16, 18-83"
-        onChange={(e) => setId(e.target.value)}
-        value={id}
-      />
-      <button 
-        className="submitButton"
-        onClick={() => getPerson(id)}
-      >Search!</button>
+      <form
+        onSubmit={e => {
+          e.preventDefault()
+        }}
+      >
 
-    
-    {data ? <CharDisplay {...data} /> : <p>Submit a number to start :)</p> }
+        <input
+          value={id}
+          onChange={(e) => setId(e.target.value)}
+          placeholder="Enter ## 1-16, 18-83"
+          type="number"
+        />
+        <button 
+          className="submitButton"
+          type="submit"
+          onClick={() => getPerson(id)}
+        >Search!</button>
+      </form>
+
+      {data ? <CharDisplay {...data} /> : <p>Search a number to start :)</p> }
     </div>
   )
 }
 
-export default StarWars
+export default StarWars;

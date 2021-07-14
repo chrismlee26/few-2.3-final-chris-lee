@@ -31,7 +31,7 @@ Yarn Start
 - [] Bonus : Validate Form
 
 4. [x] Person API Call
-5. [] Display Person API Data
+5. [x] Display Person API Data
 6. [] Save Button, saves displayed search to list
 7. [] Display Saved Char List
 8. [] Display Homeworld
