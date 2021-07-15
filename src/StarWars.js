@@ -3,63 +3,30 @@ import CharDisplay from './CharDisplay';
 import { useDispatch } from 'react-redux'
 
 import { inputChar } from './actions/index'
+import SaveCharList from './SaveCharsList';
 
 
 function StarWars() {
-  // Do we need a placeholder value?
   const [id, setId] = useState('');
-  const [charList, setCharList] = useState([])
-  const [data, setData] = useState(null);
 
-  // api call
-  async function getPerson(id) {
-    try {
-    const res = await fetch(`https://swapi.dev/api/people/${id}/`);
-    const json = await res.json();
-
-    // success properties
-    const name = json.name
-    const height = json.height
-    const mass = json.mass
-    const hair_color = json.hair_color
-    const eye_color = json.eye_color
-    const birth_year = json.birth_year
-
-    // setData
-    setData({
-      name,
-      height,
-      mass,
-      hair_color,
-      eye_color,
-      birth_year,
-    })
-    } catch(error) {
-      console.log(error)
-    } 
-  }
+  const dispatch = useDispatch()
 
   return (
-    <div className="starWars">
-      <form
+    <div>
+      <form 
         onSubmit={e => {
           e.preventDefault()
+          dispatch( inputChar(id) )
         }}
       >
-
-        <input
+        <input 
           value={id}
-          onChange={(e) => setId(e.target.value)}
-          placeholder="Enter ## 1-16, 18-83"
-          type="number"
+          type='number'
+          onChange={e => setId(e.target.value)}
         />
-        <button 
-          className="submitButton"
-          type="submit"
-          onClick={() => getPerson(id)}
-        >Search!</button>
+        <button type='submit'>Search!</button>
       </form>
-      {data ? <CharDisplay {...data} /> : <p>Search a number to start :)</p>}
+      <CharDisplay />
     </div>
   )
 }

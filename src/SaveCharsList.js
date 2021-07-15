@@ -1,34 +1,26 @@
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { saveToList } from './actions'
 
-function CharDisplay() {
+async function SaveCharList() {
   const getCharacter = useSelector(state => state.starWars)
-  const dispatch = useDispatch()
-
-  if (getCharacter === null) {
-    return null
-  }
 
   const { name, height, mass, hair_color, eye_color, birth_year, homeworld, films } = getCharacter
 
-  const filmsList = films.map(film => <p key={film}>{film}</p>);
+  const filmsList = await films.map(item => fetch(item))
+  console.log(filmsList)
 
   return (
     <div>
-      <button onClick={(e) => { dispatch(saveToList()) }}
-      >save</button>
       <h3>{name} </h3> 
-
       <p>Height: {height}</p>
       <p>Mass: {mass}</p>
       <p>Hair: {hair_color}</p>
       <p>Eye Color: {eye_color}</p>
       <p>Birth Year: {birth_year}</p>
-      {/* Remove in a sec */}
       <p>{homeworld}</p>
-      {filmsList}
+      <p>{filmsList}</p>
     </div>
   )
 }
 
-export default CharDisplay
+export default SaveCharList
