@@ -12,7 +12,7 @@ function CharDisplay() {
   const { name, height, mass, hair_color, eye_color, birth_year } = getCharacter
 
   return (
-    <div>
+    <div className="char_search_display">
       <br />
       <button onClick={() => { dispatch(saveToList(getCharacter)) }} //&& console.log(getCharacter, 'charDisplay')
       >SAVE TO LIST</button>

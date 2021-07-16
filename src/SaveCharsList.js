@@ -9,10 +9,10 @@ function SaveCharList() {
   }
 
   return (
-    <div>
+    <div> 
       {getCharacter.map((obj, index) => {
         return (
-          <div key={index}>
+          <div key={index} className="char_list_display">
             <h3>{obj.name} </h3> 
             <p>Height: {obj.height}</p>
             <p>Mass: {obj.mass}</p>
