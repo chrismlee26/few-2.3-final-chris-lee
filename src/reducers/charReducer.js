@@ -4,7 +4,7 @@ const charReducer = (state = [], action) => {
   switch(action.type) {
     case SAVE_TO_LIST:
       const obj = action.payload.obj
-      console.log(obj)
+      // console.log(obj)
       return [obj, ...state]
 
     default: 

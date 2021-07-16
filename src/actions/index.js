@@ -6,7 +6,7 @@ export const inputChar = (id) => {
     const res = await fetch(`https://swapi.dev/api/people/${id}/`);
     const json = await res.json();
 
-    const { name, height, mass, hair_color, eye_color, birth_year, homeworld, films } = json
+    const { name, height, mass, hair_color, eye_color, birth_year, homeworld } = json
 
     
     const filmsList = await Promise.all(json.films.map(film => fetch(film)))

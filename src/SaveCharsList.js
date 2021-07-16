@@ -18,9 +18,8 @@ function SaveCharList() {
             <p>Mass: {obj.mass}</p>
             <p>Hair Color: {obj.hair_color}</p>
             <p>Eye Color: {obj.eye_color}</p>
-
             <p>Homeworld: {obj.worldJSON.name}</p>
-            {obj.filmsJSON.map(film => <p key={film}>Film: {film.title}</p>)}
+            {obj.filmsJSON.map(film => <p key={film.title}>Film: {film.title}</p>)}
           </div>
         )
       }

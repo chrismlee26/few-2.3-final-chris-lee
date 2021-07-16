@@ -13,7 +13,7 @@ function CharDisplay() {
 
   return (
     <div>
-      <button onClick={() => { dispatch(saveToList(getCharacter)) && console.log(getCharacter, 'charDisplay') }}
+      <button onClick={() => { dispatch(saveToList(getCharacter)) }} //&& console.log(getCharacter, 'charDisplay')
       >save to list</button>
       <h3>{name} </h3> 
       <p>Height: {height}</p>
