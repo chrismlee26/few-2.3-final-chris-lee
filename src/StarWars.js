@@ -8,8 +8,8 @@ import SaveCharList from './SaveCharsList';
 
 function StarWars() {
   const [id, setId] = useState('');
+  const dispatch = useDispatch();
 
-  const dispatch = useDispatch()
 
   return (
     <div>
@@ -24,6 +24,9 @@ function StarWars() {
             value={id}
             type='number'
             onChange={e => setId(e.target.value)}
+            placeholder="enter 1-16, 18-83"
+            min='1'
+            max='83'
           />
           <button type='submit'>SEARCH!</button>
         </form>
