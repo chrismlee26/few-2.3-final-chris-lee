@@ -9,24 +9,18 @@ function CharDisplay() {
     return null
   }
 
-  const { name, height, mass, hair_color, eye_color, birth_year, homeworld, films } = getCharacter
-
-  const filmsList = films.map(film => <p key={film}>{film}</p>);
+  const { name, height, mass, hair_color, eye_color, birth_year } = getCharacter
 
   return (
     <div>
-      <button onClick={(e) => { dispatch(saveToList()) }}
-      >save</button>
+      <button onClick={() => { dispatch(saveToList(getCharacter)) && console.log(getCharacter, 'charDisplay') }}
+      >save to list</button>
       <h3>{name} </h3> 
-
       <p>Height: {height}</p>
       <p>Mass: {mass}</p>
       <p>Hair: {hair_color}</p>
       <p>Eye Color: {eye_color}</p>
       <p>Birth Year: {birth_year}</p>
-      {/* Remove in a sec */}
-      <p>{homeworld}</p>
-      {filmsList}
     </div>
   )
 }

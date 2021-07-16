@@ -1,26 +1,46 @@
 import { useSelector } from 'react-redux'
-import { saveToList } from './actions'
 
-async function SaveCharList() {
-  const getCharacter = useSelector(state => state.starWars)
+function SaveCharList() {
+  const getCharacter = useSelector(state => state.savedList)
 
-  const { name, height, mass, hair_color, eye_color, birth_year, homeworld, films } = getCharacter
-
-  const filmsList = await films.map(item => fetch(item))
-  console.log(filmsList)
+  if (getCharacter === null) {
+    return null
+  }
 
   return (
     <div>
-      <h3>{name} </h3> 
-      <p>Height: {height}</p>
-      <p>Mass: {mass}</p>
-      <p>Hair: {hair_color}</p>
-      <p>Eye Color: {eye_color}</p>
-      <p>Birth Year: {birth_year}</p>
-      <p>{homeworld}</p>
-      <p>{filmsList}</p>
+      {getCharacter.map((obj, index) => {
+        return (
+          <div key={index}>
+            <h3>{obj.name} </h3> 
+            <p>Height: {obj.height}</p>
+            <p>Mass: {obj.mass}</p>
+            <p>Hair Color: {obj.hair_color}</p>
+            <p>Eye Color: {obj.eye_color}</p>
+
+            {/* Maybe add another component that does async Promise.All */}
+            <h4>{obj.homeworld}</h4>
+            {/* {obj.films.map(i => <p key={i.title}>Film: {i.title}</p>)} */}
+
+            <hr />
+          </div>
+        )
+      }
+      )}
     </div>
-  )
+  );
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 export default SaveCharList
