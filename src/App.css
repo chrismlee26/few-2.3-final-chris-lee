@@ -1,38 +1,39 @@
+:root {
+  /* CSS HEX */
+  --smoky-black: #120c0eff;
+  --black-coffee: #40363aff;
+  --old-lavender: #74696dff;
+  --green-blue-crayola: rgba(36, 137, 210, 255);
+  --silver-metallic: #a8a2a3ff;
+  --gainsboro: #dedce5ff;
+}
+
+html {
+  background-color: var(--smoky-black);
+}
+
 .App {
   text-align: center;
+  color: var(--gainsboro);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.home {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+button {
+  background-color: var(--black-coffee);
+  color: var(--green-blue-crayola);
+  padding: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+form > input {
+  background-color: var(--silver-metallic);
+  font-family: "helvetica-neue";
+  padding: 5px;
+}
+
+h1,
+h3 {
+  color: var(--green-blue-crayola);
 }

@@ -25,7 +25,7 @@ function StarWars() {
             type='number'
             onChange={e => setId(e.target.value)}
           />
-          <button type='submit'>Search!</button>
+          <button type='submit'>SEARCH!</button>
         </form>
         <CharDisplay />
       </div>
