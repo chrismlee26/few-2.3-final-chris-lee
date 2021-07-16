@@ -6,13 +6,18 @@ export const inputChar = (id) => {
     const res = await fetch(`https://swapi.dev/api/people/${id}/`);
     const json = await res.json();
 
-    const { name, height, mass, hair_color, eye_color, birth_year, homeworld, films  } = json
+    const { name, height, mass, hair_color, eye_color, birth_year, homeworld, films } = json
 
+    
     const filmsList = await Promise.all(json.films.map(film => fetch(film)))
     const filmsJSON = await Promise.all(filmsList.map(res => res.json()))
-    console.log(filmsJSON)
+    // console.log(filmsJSON)
 
-    dispatch({ type: INPUT_CHAR, payload: { name, height, mass, hair_color, eye_color, birth_year, homeworld, films, filmsJSON }})
+    const fetchWorld = await fetch(`${homeworld}`)
+    const worldJSON = await fetchWorld.json()
+    // console.log(worldJSON)
+
+    dispatch({ type: INPUT_CHAR, payload: { name, height, mass, hair_color, eye_color, birth_year, homeworld, filmsJSON, worldJSON }})
   }
 }
 

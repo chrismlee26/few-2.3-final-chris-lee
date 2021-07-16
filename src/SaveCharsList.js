@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux'
 
 function SaveCharList() {
   const getCharacter = useSelector(state => state.savedList)
+  // useSelector(state => console.log(state))
 
   if (getCharacter === null) {
     return null
@@ -18,11 +19,8 @@ function SaveCharList() {
             <p>Hair Color: {obj.hair_color}</p>
             <p>Eye Color: {obj.eye_color}</p>
 
-            {/* Maybe add another component that does async Promise.All */}
-            <h4>{obj.homeworld}</h4>
-            {/* {obj.films.map(i => <p key={i.title}>Film: {i.title}</p>)} */}
-
-            <hr />
+            <p>Homeworld: {obj.worldJSON.name}</p>
+            {obj.filmsJSON.map(film => <p key={film}>Film: {film.title}</p>)}
           </div>
         )
       }
